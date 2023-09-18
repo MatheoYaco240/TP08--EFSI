@@ -27,6 +27,21 @@ const Home = () => {
     const t = (document.getElementById("id").value).toLowerCase()
     console.log(t)
 
+    /* Regex 
+    
+    const regexGris = /"alimento | comida | ramas | hojas | flor | vela | arcilla | plastilina | ladrillo | pelota | piedra | roca | arena | l[áa]piz | lapicera | colch[óo]n | almohada | yerba | juguete"/
+    
+    const regexNaranja = /"sucio | mojado | usado | cubierto | bolsa | t[ée] | servilleta"/
+    
+    const regexVerde = /"vidrio | botella | frasco | bid[oó]n | espejo"/
+    
+    const regexAzul = /"cart[oó]n | papel | tela | madera | envoltorio | diario"/
+    
+    const regexAmarillo = /"lata | tuerca | tornillo | clavo | martillo | destornillador | rueda | snack | metal | llave | maceta | cer[áa]mica"/
+    
+    const regexRojo = /"pila | aerosol | desodorante | bombilla | m[áa]quina | curita | jeringa | reloj | linterna | pastilla | p[íi]ldora | droga | celular | tel[ée]fono | gasolina | teclado | mouse | impresora | televisor | preservativo | encendedor | toallita"/
+    */
+    
     if (t === "lata de aluminio" || t === "tuercas, tornillos o clavos" || t === "martillo" || t === "destornillador" || t === "rueda de bicicleta" || t === "paquetes de snacks" || t === "cubiertos de metal" || t === "llaves" || t === "maceta" || t === "restos de cerámica" || t === "tanque de metal") {
       setResultado("Tacho Amarillo");
     }
@@ -46,7 +61,7 @@ const Home = () => {
       setResultado("Tacho Gris");
     }
     else {
-      setResultado("No se ha encontrado el producto ingresado");
+      setResultado("Tacho Gris"); //Por defecto devuelve tacho gris
     }
   };
 
@@ -89,7 +104,7 @@ const Home = () => {
         setColorCard("rgb(203 255 196 / 86%)")
         setTexto("Principalmente botellas o vidrios rotos (o también plásticos limpios). No se utiliza para cerámica o cristal. También se puede usar el amarillo o gris.")
         break;
-      default:
+      default: //retorna null porque setea el tacho por defecto. Cuando el usuario seleccione un producto no va a volver a entrar acá, la validación se hace arriba
         return null
         break;
     }
