@@ -49,6 +49,11 @@ const Layout = () => {
                                     Tachos
                                 </a>
                             </li>
+                            <li className="nav-item" style={{ marginRight: "8%" }}>
+                                <a className="nav-link" href="/historial">
+                                    Historial
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

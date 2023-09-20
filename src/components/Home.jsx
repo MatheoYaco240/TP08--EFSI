@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import SearchableDropdown from "./SearchableDropdown";
 import { productos } from "./data/productos";
 
@@ -8,6 +8,9 @@ import TGris from "../img/Gris.PNG";
 import TNaranja from "../img/Naranja.PNG";
 import TRojo from "../img/Rojo.PNG";
 import TVerde from "../img/Verde.PNG";
+import { HistorialContext } from "../context/HistorialContext";
+import { Historial } from "./Historial";
+import React from "react";
 
 const Home = () => {
   const [resultado, setResultado] = useState("");
@@ -16,6 +19,8 @@ const Home = () => {
   const [src, setSrc] = useState("");
   const [texto, setTexto] = useState("Para elegir un producto, usar el buscador y seleccionar alguna opción disponible para así saber el tacho en el cual se debe tirar.");
   const [colorCard, setColorCard] = useState("");
+
+  const {setHistorial, historial} = React.useContext(HistorialContext)
 
   useEffect(() => {
     cambiarTacho()
@@ -63,6 +68,8 @@ const Home = () => {
     else {
       setResultado("Tacho Gris"); //Por defecto devuelve tacho gris
     }
+
+    setHistorial([...historial, document.getElementById("id").value])
   };
 
   const cambiarTacho = () => {
@@ -136,7 +143,7 @@ const Home = () => {
                 backgroundColor: "#2fff4ead",
                 borderColor: "#a7a7a7",
               }}
-              onClick={determinarTacho}
+              onClick={() => determinarTacho()}
             >
               Buscar
             </button>
